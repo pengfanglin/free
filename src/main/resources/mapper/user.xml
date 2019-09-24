@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.free.mapper.UserMapper">
+  <select id="userList" resultType="userListModel">
+    select id,username,head_image,disable,create_time from user
+    <where>
+      <if test=" username != null and username !=''">
+        and username like concat('%',#{username},'%')
+      </if>
+      <if test=" disable != null ">
+        and disable=#{disable}
+      </if>
+    </where>
+    order by id desc
+  </select>
+</mapper>
