@@ -1,6 +1,8 @@
 package com.free.mapper;
 
-import com.free.entity.address.RegionEntity;
+import com.free.entity.common.RegionEntity;
+import com.free.model.admin.region.AdminRegionListModel;
+import com.github.pagehelper.PageRowBounds;
 import org.apache.ibatis.annotations.Select;
 import tk.mybatis.mapper.common.Mapper;
 
@@ -22,4 +24,13 @@ public interface RegionMapper extends Mapper<RegionEntity> {
      */
     @Select("select name from region order by sort desc, id")
     List<String> regionCache();
+
+    /**
+     * 后台区域列表
+     *
+     * @param rowBounds
+     * @return
+     */
+    @Select("select id,name,sort,create_time from region order by id")
+    List<AdminRegionListModel> adminRegionList(PageRowBounds rowBounds);
 }

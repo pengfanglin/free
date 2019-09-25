@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.free.mapper.StoreMapper">
+  <select id="storeSearch" resultType="storeSearchResultModel">
+    select id,name from store
+    <where>
+      <if test=" name != null and name !='' ">
+        and (
+        name like concat(#{name},'%')
+        <if test=" pinyin != null and pinyin !='' ">
+          or short_pinyin like concat(#{pinyin},'%')
+        </if>
+        )
+      </if>
+    </where>
+    order by sort desc,id
+  </select>
+</mapper>

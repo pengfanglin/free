@@ -1,4 +1,4 @@
-package com.free.entity.address;
+package com.free.entity.store;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -10,7 +10,7 @@ import javax.persistence.Table;
 import java.util.Date;
 
 /**
- * 服务城市
+ * 免税店
  *
  * @author 彭方林
  * @version 1.0
@@ -19,8 +19,8 @@ import java.util.Date;
 @Setter
 @Getter
 @Accessors(chain = true)
-@Table(name = "region")
-public class RegionEntity {
+@Table(name = "store")
+public class StoreEntity {
     /**
      * 主键
      */
@@ -28,9 +28,25 @@ public class RegionEntity {
     @KeySql(useGeneratedKeys = true)
     private Integer id;
     /**
-     * 地区名称
+     * 名称
      */
     private String name;
+    /**
+     * 拼音缩写
+     */
+    private String shortPinyin;
+    /**
+     * logo
+     */
+    private String logo;
+    /**
+     * 普通返点
+     */
+    private Float commonRebate;
+    /**
+     * 现金返点
+     */
+    private Float cashRebate;
     /**
      * 权重
      */

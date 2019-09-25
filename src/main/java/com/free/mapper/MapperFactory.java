@@ -20,4 +20,10 @@ public class MapperFactory {
     public RegionMapper region;
     @Autowired
     public AccountMapper account;
+    @Autowired
+    public BannerMapper banner;
+    @Autowired
+    public HtmlStyleMapper htmlStyle;
+    @Autowired
+    public StoreMapper store;
 }
