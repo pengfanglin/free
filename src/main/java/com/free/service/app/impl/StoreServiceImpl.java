@@ -2,8 +2,9 @@ package com.free.service.app.impl;
 
 import com.fanglin.common.util.OthersUtils;
 import com.free.mapper.MapperFactory;
+import com.free.model.app.store.StoreFloorListModel;
 import com.free.model.app.store.StoreSearchResultModel;
-import com.free.service.app.AppStoreService;
+import com.free.service.app.StoreService;
 import com.free.util.PinYinUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,7 +19,7 @@ import java.util.List;
  * @date 2019/9/25 20:38
  **/
 @Service
-public class AppStoreServiceImpl implements AppStoreService {
+public class StoreServiceImpl implements StoreService {
 
     @Autowired
     MapperFactory mapperFactory;
@@ -31,5 +32,10 @@ public class AppStoreServiceImpl implements AppStoreService {
             pinyin = PinYinUtils.toFirstChar(name).toUpperCase();
         }
         return mapperFactory.store.storeSearch(name, pinyin);
+    }
+
+    @Override
+    public List<StoreFloorListModel> storeFloorList(Integer storeId) {
+        return mapperFactory.floor.storeFloorList(storeId);
     }
 }

@@ -7,7 +7,7 @@ import com.fanglin.common.core.page.PageResult;
 import com.free.controller.common.BaseController;
 import com.free.model.admin.user.UserListModel;
 import com.free.model.admin.user.UserListSearch;
-import com.free.service.admin.AdminUserService;
+import com.free.service.admin.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -26,13 +26,13 @@ import org.springframework.web.bind.annotation.RestController;
  * @version 1.0
  * @date 2019/4/19 0:20
  **/
-@RestController
+@RestController("adminUserController")
 @RequestMapping("/admin/user/")
 @Api(value = "/admin/user/", tags = {"后台-用户"})
 @Token("admin")
-public class AdminUserController extends BaseController {
+public class UserController extends BaseController {
     @Autowired
-    AdminUserService memberService;
+    UserService memberService;
 
     @ApiOperation("用户列表")
     @PostMapping("userList")

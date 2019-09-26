@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
  * @version 1.0
  * @date 2019/4/4 10:00
  **/
-public interface AdminRoleService {
+public interface RoleService {
 
     /**
      * 系统账号列表

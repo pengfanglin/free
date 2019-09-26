@@ -2,7 +2,7 @@ package com.free.controller.app;
 
 import com.fanglin.common.core.others.Ajax;
 import com.free.model.app.user.UserLoginResultModel;
-import com.free.service.app.AppUserService;
+import com.free.service.app.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -25,10 +25,10 @@ import javax.servlet.http.HttpServletResponse;
 @RestController
 @RequestMapping("/app/user/")
 @Api(value = "/app/user/", tags = {"APP-用户"})
-public class AppUserController {
+public class UserController {
 
     @Autowired
-    AppUserService appUserService;
+    UserService userService;
 
     @ApiOperation("登录")
     @ApiImplicitParams({
@@ -36,7 +36,7 @@ public class AppUserController {
     })
     @PostMapping("login")
     public Ajax<UserLoginResultModel> login(HttpServletResponse response, @RequestParam String openId) {
-        return Ajax.ok(appUserService.login(response, openId));
+        return Ajax.ok(userService.login(response, openId));
     }
 
     @ApiOperation("注册")
@@ -45,6 +45,6 @@ public class AppUserController {
     })
     @PostMapping("register")
     public Ajax<UserLoginResultModel> register(HttpServletResponse response, @RequestParam String openId) {
-        return Ajax.ok(appUserService.register(response, openId));
+        return Ajax.ok(userService.register(response, openId));
     }
 }

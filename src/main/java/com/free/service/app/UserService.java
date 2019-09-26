@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
  * @version 1.0
  * @date 2019/4/4 10:00
  **/
-public interface AppUserService {
+public interface UserService {
 
     /**
      * 登录

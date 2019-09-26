@@ -3,16 +3,15 @@
 <mapper namespace="com.free.mapper.StoreMapper">
   <select id="storeSearch" resultType="storeSearchResultModel">
     select id,name from store
-    <where>
-      <if test=" name != null and name !='' ">
-        and (
-        name like concat(#{name},'%')
-        <if test=" pinyin != null and pinyin !='' ">
-          or short_pinyin like concat(#{pinyin},'%')
-        </if>
-        )
+    where 1=1
+    <if test=" name != null and name !='' ">
+      and (
+      name like concat(#{name},'%')
+      <if test=" pinyin != null and pinyin !='' ">
+        or short_pinyin like concat(#{pinyin},'%')
       </if>
-    </where>
+      )
+    </if>
     order by sort desc,id
   </select>
 </mapper>

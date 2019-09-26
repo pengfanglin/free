@@ -29,7 +29,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/admin/remote/")
 @Api(value = "/admin/remote", tags = {"后台-远程控制"})
-public class AdminRemoteController {
+public class RemoteController {
 
     @Autowired
     JedisPool jedisPool;

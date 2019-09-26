@@ -12,7 +12,7 @@ import com.free.model.admin.account.AccountListModel;
 import com.free.model.admin.account.AddAccountModel;
 import com.free.model.admin.account.AdminLoginResultModel;
 import com.free.model.admin.account.UpdateAccountModel;
-import com.free.service.admin.AdminRoleService;
+import com.free.service.admin.RoleService;
 import com.github.pagehelper.PageRowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,7 +28,7 @@ import java.util.UUID;
  * @date 2019/4/3 16:44
  **/
 @Service
-public class AdminRoleServiceImpl implements AdminRoleService {
+public class RoleServiceImpl implements RoleService {
     @Autowired
     MapperFactory mapperFactory;
 

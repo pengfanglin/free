@@ -14,7 +14,7 @@ import com.free.model.admin.banner.UpdateBannerModel;
 import com.free.model.admin.region.AddRegionModel;
 import com.free.model.admin.region.AdminRegionListModel;
 import com.free.model.admin.region.UpdateRegionModel;
-import com.free.service.admin.AdminCommonService;
+import com.free.service.admin.CommonService;
 import com.github.pagehelper.PageRowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,8 +29,8 @@ import java.util.concurrent.TimeUnit;
  * @version 1.0
  * @date 2019/9/25 20:38
  **/
-@Service
-public class AdminCommonServiceImpl implements AdminCommonService {
+@Service("adminCommonService")
+public class CommonServiceImpl implements CommonService {
 
     @Autowired
     MapperFactory mapperFactory;
@@ -66,7 +66,7 @@ public class AdminCommonServiceImpl implements AdminCommonService {
         ValidatorUtils.validate(banner);
         String fileName = TimeUtils.getCurrentTime("yyyyMMddHHmmss") + new Random().nextInt(Integer.MAX_VALUE);
         String url = String.format("/html/banner/%s.html", fileName);
-        String htmlStyle = SpringUtils.getBean(AdminCommonService.class).defaultHtmlStyleContent();
+        String htmlStyle = SpringUtils.getBean(CommonService.class).defaultHtmlStyleContent();
         if (htmlStyle == null) {
             htmlStyle = "";
         }
@@ -95,7 +95,7 @@ public class AdminCommonServiceImpl implements AdminCommonService {
             String fileName = TimeUtils.getCurrentTime("yyyyMMddHHmmss") + new Random().nextInt(Integer.MAX_VALUE);
             url = String.format("/html/banner/%s.html", fileName);
         }
-        String htmlStyle = SpringUtils.getBean(AdminCommonService.class).defaultHtmlStyleContent();
+        String htmlStyle = SpringUtils.getBean(CommonService.class).defaultHtmlStyleContent();
         if (htmlStyle == null) {
             htmlStyle = "";
         }

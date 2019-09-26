@@ -19,7 +19,7 @@ import java.util.List;
  * @version 1.0
  * @date 2019/4/4 10:00
  **/
-public interface AdminCommonService {
+public interface CommonService {
 
     /**
      * 增加区域

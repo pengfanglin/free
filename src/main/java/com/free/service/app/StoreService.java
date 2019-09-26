@@ -1,6 +1,8 @@
 package com.free.service.app;
 
+import com.free.model.app.store.StoreFloorListModel;
 import com.free.model.app.store.StoreSearchResultModel;
+import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
@@ -11,7 +13,7 @@ import java.util.List;
  * @version 1.0
  * @date 2019/4/4 10:00
  **/
-public interface AppStoreService {
+public interface StoreService {
 
     /**
      * 免税店搜索
@@ -21,4 +23,10 @@ public interface AppStoreService {
      */
     List<StoreSearchResultModel> storeSearch(String name);
 
+    /**
+     * 免税店楼层信息
+     * @param storeId 店铺id
+     * @return
+     */
+    List<StoreFloorListModel> storeFloorList(Integer storeId);
 }

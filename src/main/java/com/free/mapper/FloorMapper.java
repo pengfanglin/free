@@ -1,7 +1,9 @@
 package com.free.mapper;
 
 import com.free.entity.store.FloorEntity;
+import com.free.model.admin.floor.AdminFloorListModel;
 import com.free.model.admin.store.AdminStoreListModel;
+import com.free.model.app.store.StoreFloorListModel;
 import com.free.model.app.store.StoreSearchResultModel;
 import com.github.pagehelper.PageRowBounds;
 import org.apache.ibatis.annotations.Param;
@@ -20,18 +22,39 @@ import java.util.List;
 public interface FloorMapper extends Mapper<FloorEntity> {
 
     /**
-     * 免税店搜索
-     *
-     * @return
-     */
-    List<StoreSearchResultModel> storeSearch(@Param("name") String name, @Param("pinyin") String pinyin);
-
-    /**
-     * 后台免税店列表
+     * 后台免税店楼层信息列表
      *
      * @param rowBounds
      * @return
      */
-    @Select("select * from store order by id desc")
-    List<AdminStoreListModel> adminStoreList(PageRowBounds rowBounds);
+    @Select("select * from floor where store_id=#{storeId} order by id desc")
+    List<AdminFloorListModel> adminFloorList(@Param("storeId") Integer storeId, PageRowBounds rowBounds);
+
+    /**
+     * 店铺下楼层号id
+     *
+     * @param storeId 店铺id
+     * @return
+     */
+    @Select("select id from floor where store_id=#{storeId} and no=#{no} limit 1")
+    Integer noExist(@Param("storeId") Integer storeId, @Param("no") Integer no);
+
+    /**
+     * 判断店铺下楼层号是否存在
+     *
+     * @param id 店铺id
+     * @param no 楼层号
+     * @return
+     */
+    @Select("select count(*) from floor where store_id=(select store_id from floor where id=#{id}) and no=#{no} and id!=#{id}")
+    int getIdByNo(@Param("id") Integer id, @Param("no") Integer no);
+
+    /**
+     * 免税店楼层信息
+     *
+     * @param storeId 店铺id
+     * @return
+     */
+    @Select("select no,img from floor where store_id=#{storeId} order by no")
+    List<StoreFloorListModel> storeFloorList(@Param("storeId") Integer storeId);
 }

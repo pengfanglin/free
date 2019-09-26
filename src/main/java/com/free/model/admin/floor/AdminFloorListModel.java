@@ -5,11 +5,12 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
+import org.hibernate.validator.constraints.Length;
 
 import java.util.Date;
 
 /**
- * 后台免税店列表
+ * 后台免税店楼层信息列表
  *
  * @author 彭方林
  * @version 1.0
@@ -18,26 +19,17 @@ import java.util.Date;
 @Setter
 @Getter
 @Accessors(chain = true)
-@ApiModel("后台免税店列表")
+@ApiModel("后台免税店楼层信息列表")
 public class AdminFloorListModel {
 
-    @ApiModelProperty("id")
+    @ApiModelProperty("楼层id")
     private Integer id;
 
-    @ApiModelProperty("名称")
-    private String name;
+    @ApiModelProperty("楼层号")
+    private Integer no;
 
-    @ApiModelProperty("普通返点")
-    private Float commonRebate;
-
-    @ApiModelProperty("现金返点")
-    private Float cashRebate;
-
-    @ApiModelProperty("logo")
-    private String logo;
-
-    @ApiModelProperty("权重")
-    private Float sort;
+    @ApiModelProperty("楼层图片")
+    private String img;
 
     @ApiModelProperty("创建时间")
     private Date createTime;

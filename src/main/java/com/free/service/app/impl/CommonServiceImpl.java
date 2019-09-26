@@ -6,7 +6,7 @@ import com.fanglin.common.util.OthersUtils;
 import com.fanglin.common.util.SmsUtils;
 import com.free.enums.others.RedisKeyEnum;
 import com.free.mapper.MapperFactory;
-import com.free.service.app.AppCommonService;
+import com.free.service.app.CommonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import redis.clients.jedis.Jedis;
@@ -23,7 +23,7 @@ import java.util.concurrent.TimeUnit;
  * @date 2019/4/3 16:36
  **/
 @Service
-public class AppCommonServiceImpl implements AppCommonService {
+public class CommonServiceImpl implements CommonService {
 
     @Autowired
     MapperFactory mapperFactory;

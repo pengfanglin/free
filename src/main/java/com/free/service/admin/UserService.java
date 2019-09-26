@@ -13,7 +13,7 @@ import com.free.model.admin.user.UserListSearch;
  * @version 1.0
  * @date 2019/4/4 10:00
  **/
-public interface AdminUserService {
+public interface UserService {
 
 
     /**

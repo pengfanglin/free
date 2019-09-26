@@ -5,7 +5,7 @@ import com.fanglin.common.annotation.Token;
 import com.fanglin.common.core.others.Ajax;
 import com.fanglin.common.util.UploadUtils;
 import com.free.enums.others.CodeTypeEnum;
-import com.free.service.app.AppCommonService;
+import com.free.service.app.CommonService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -30,10 +30,10 @@ import java.util.List;
 @RequestMapping("/app/common/")
 @Token("user")
 @Api(value = "/app/common/", tags = {"APP-公共"})
-public class AppCommonController {
+public class CommonController {
 
     @Autowired
-    AppCommonService commonService;
+    CommonService commonService;
 
     @ApiOperation("上传多个文件")
     @ApiImplicitParams({

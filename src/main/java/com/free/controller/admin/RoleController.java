@@ -10,7 +10,7 @@ import com.free.model.admin.account.AccountListModel;
 import com.free.model.admin.account.AddAccountModel;
 import com.free.model.admin.account.AdminLoginResultModel;
 import com.free.model.admin.account.UpdateAccountModel;
-import com.free.service.admin.AdminRoleService;
+import com.free.service.admin.RoleService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -35,9 +35,9 @@ import javax.servlet.http.HttpServletResponse;
 @RequestMapping("/admin/role/")
 @Api(value = "/admin/role/", tags = {"后台-权限"})
 @Token("admin")
-public class AdminRoleController extends BaseController {
+public class RoleController extends BaseController {
     @Autowired
-    AdminRoleService roleService;
+    RoleService roleService;
 
     @ApiOperation("登录")
     @ApiImplicitParams({

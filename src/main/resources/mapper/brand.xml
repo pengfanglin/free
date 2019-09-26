@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.free.mapper.BrandMapper">
+  <select id="brandSearch" resultType="brandSearchResultModel">
+    select a.id,a.name,a.short_pinyin,a.common_rebate,a.cash_rebate,a.logo,
+    (
+    select id from brand_focus where user_id=#{userId} and brand_id=a.id limit 1
+    )as focus_id
+    from brand as a
+    where 1=1
+    <if test=" storeId != null ">
+      and a.store_id=#{storeId}
+    </if>
+    <if test=" name != null and name !='' ">
+      and (
+      a.name like concat(#{name},'%')
+      <if test=" pinyin != null and pinyin !='' ">
+        or a.short_pinyin like concat(#{pinyin},'%')
+      </if>
+      )
+    </if>
+    <if test=" type !=null and type == @com.free.enums.brand.BrandSearchTypeEnum@COMMON ">
+      order by a.common_rebate desc,a.id
+    </if>
+    <if test=" type !=null and type == @com.free.enums.brand.BrandSearchTypeEnum@CASH ">
+      order by a.cash_rebate desc,a.id
+    </if>
+  </select>
+  <select id="adminBrandList" resultType="adminBrandListModel">
+    select a.*, b.name as store_name
+    from brand as a
+           left join store as b
+                     on a.store_id = b.id
+    order by a.id desc
+  </select>
+</mapper>

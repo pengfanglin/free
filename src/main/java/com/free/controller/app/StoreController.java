@@ -2,14 +2,9 @@ package com.free.controller.app;
 
 import com.fanglin.common.annotation.Token;
 import com.fanglin.common.core.others.Ajax;
-import com.fanglin.common.core.page.Page;
-import com.fanglin.common.core.page.PageResult;
-import com.free.model.admin.store.AddStoreModel;
-import com.free.model.admin.store.AdminStoreListModel;
-import com.free.model.admin.store.UpdateStoreModel;
+import com.free.model.app.store.StoreFloorListModel;
 import com.free.model.app.store.StoreSearchResultModel;
-import com.free.service.admin.AdminStoreService;
-import com.free.service.app.AppStoreService;
+import com.free.service.app.StoreService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -33,10 +28,10 @@ import java.util.List;
 @RequestMapping("/app/store/")
 @Token("user")
 @Api(value = "/app/store/", tags = {"APP-免税店"})
-public class AppStoreController {
+public class StoreController {
 
     @Autowired
-    AppStoreService storeService;
+    StoreService storeService;
 
 
     @ApiOperation("免税店搜索")
@@ -48,4 +43,12 @@ public class AppStoreController {
         return Ajax.ok(storeService.storeSearch(name));
     }
 
+    @ApiOperation("免税店楼层信息")
+    @ApiImplicitParams({
+        @ApiImplicitParam(name = "storeId", value = "店铺id", required = true)
+    })
+    @PostMapping("storeFloorList")
+    public Ajax<List<StoreFloorListModel>> storeFloorList(@RequestParam Integer storeId) {
+        return Ajax.ok(storeService.storeFloorList(storeId));
+    }
 }

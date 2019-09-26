@@ -28,4 +28,8 @@ public class MapperFactory {
     public StoreMapper store;
     @Autowired
     public FloorMapper floor;
+    @Autowired
+    public BrandMapper brand;
+    @Autowired
+    public BrandFocusMapper brandFocus;
 }

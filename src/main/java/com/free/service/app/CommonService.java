@@ -8,7 +8,7 @@ import java.util.List;
  * @version 1.0
  * @date 2019/4/4 10:00
  **/
-public interface AppCommonService {
+public interface CommonService {
     /**
      * 发送验证码
      *

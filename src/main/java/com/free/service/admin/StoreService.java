@@ -2,6 +2,9 @@ package com.free.service.admin;
 
 import com.fanglin.common.core.page.Page;
 import com.fanglin.common.core.page.PageResult;
+import com.free.model.admin.floor.AddFloorModel;
+import com.free.model.admin.floor.AdminFloorListModel;
+import com.free.model.admin.floor.UpdateFloorModel;
 import com.free.model.admin.store.AddStoreModel;
 import com.free.model.admin.store.AdminStoreListModel;
 import com.free.model.admin.store.UpdateStoreModel;
@@ -13,7 +16,7 @@ import com.free.model.admin.store.UpdateStoreModel;
  * @version 1.0
  * @date 2019/4/4 10:00
  **/
-public interface AdminStoreService {
+public interface StoreService {
 
     /**
      * 增加店铺
@@ -43,4 +46,31 @@ public interface AdminStoreService {
      */
     PageResult<AdminStoreListModel> storeList(Page page);
 
+    /**
+     * 添加漏乘
+     *
+     * @param floor
+     */
+    void addFloor(AddFloorModel floor);
+
+    /**
+     * 删除楼层
+     *
+     * @param floor
+     */
+    void deleteFloor(Integer id);
+
+    /**
+     * 修改楼层
+     *
+     * @param floor
+     */
+    void updateFloor(UpdateFloorModel floor);
+
+    /**
+     * 楼层列表
+     *
+     * @param floor
+     */
+    PageResult<AdminFloorListModel> floorList(Integer storeId, Page page);
 }

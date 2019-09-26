@@ -1,20 +1,16 @@
 package com.free.controller.admin;
 
-import com.fanglin.common.annotation.NoToken;
 import com.fanglin.common.annotation.Token;
 import com.fanglin.common.core.others.Ajax;
 import com.fanglin.common.core.page.Page;
 import com.fanglin.common.core.page.PageResult;
-import com.fanglin.common.util.UploadUtils;
-import com.free.enums.others.CodeTypeEnum;
 import com.free.model.admin.banner.AddBannerModel;
 import com.free.model.admin.banner.AdminBannerListModel;
 import com.free.model.admin.banner.UpdateBannerModel;
 import com.free.model.admin.region.AddRegionModel;
 import com.free.model.admin.region.AdminRegionListModel;
 import com.free.model.admin.region.UpdateRegionModel;
-import com.free.service.admin.AdminCommonService;
-import com.free.service.app.AppCommonService;
+import com.free.service.admin.CommonService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -24,9 +20,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
-
-import java.util.List;
 
 /**
  * 后台公共服务
@@ -35,14 +28,14 @@ import java.util.List;
  * @version 1.0
  * @date 2019/4/3 16:36
  **/
-@RestController
+@RestController("adminCommonController")
 @RequestMapping("/admin/common/")
 @Token("admin")
 @Api(value = "/admin/common/", tags = {"后台-公共"})
-public class AdminCommonController {
+public class CommonController {
 
     @Autowired
-    AdminCommonService commonService;
+    CommonService commonService;
 
     @ApiOperation("添加区域")
     @PostMapping("addRegion")

@@ -8,7 +8,7 @@ import com.free.entity.user.UserEntity;
 import com.free.mapper.MapperFactory;
 import com.free.model.app.user.UserLoginModel;
 import com.free.model.app.user.UserLoginResultModel;
-import com.free.service.app.AppUserService;
+import com.free.service.app.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +23,7 @@ import javax.servlet.http.HttpServletResponse;
  * @date 2019/4/3 16:36
  **/
 @Service
-public class AppUserServiceImpl implements AppUserService {
+public class UserServiceImpl implements UserService {
 
     @Autowired
     MapperFactory mapperFactory;
