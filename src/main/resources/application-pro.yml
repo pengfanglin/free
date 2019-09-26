@@ -44,6 +44,9 @@ common:
     host: 172.17.0.1
     database: 1
   swagger:
-    enable: false
+    enable: true
+    title: 免税店
+    description: 免税店API文档
+    version: 1.0.0
   http:
     enable: true
