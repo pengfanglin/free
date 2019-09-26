@@ -26,4 +26,6 @@ public class MapperFactory {
     public HtmlStyleMapper htmlStyle;
     @Autowired
     public StoreMapper store;
+    @Autowired
+    public FloorMapper floor;
 }
