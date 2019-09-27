@@ -36,8 +36,8 @@ public class CodeGenerator {
         DataSourceConfig dataSourceConfig = new DataSourceConfig()
             .setUrl("jdbc:mysql://47.101.151.125:3306/free")
             .setDriverName("com.mysql.cj.jdbc.Driver")
-            .setUsername("root")
-            .setPassword("123456");
+            .setUsername("free")
+            .setPassword("123456789");
         generator.setDataSource(dataSourceConfig);
         generator.execute();
     }
