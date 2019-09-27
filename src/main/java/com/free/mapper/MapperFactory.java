@@ -32,4 +32,10 @@ public class MapperFactory {
     public BrandMapper brand;
     @Autowired
     public BrandFocusMapper brandFocus;
+    @Autowired
+    public ModuleMapper module;
+    @Autowired
+    public RoleMapper role;
+    @Autowired
+    public PermissionsMapper permissions;
 }

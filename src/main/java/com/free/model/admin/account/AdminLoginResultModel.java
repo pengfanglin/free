@@ -26,4 +26,6 @@ public class AdminLoginResultModel {
     private String accessToken;
     @ApiModelProperty("刷新token")
     private String refreshToken;
+    @ApiModelProperty("权限")
+    private String permissionsIds;
 }
